@@ -199,6 +199,4 @@ This project is licensed under the [MIT License](LICENSE).
 * [ ] Hotkey to toggle history panel
 * [ ] Configurable blocked keywords (via settings GUI)
 
-```
-
 ## Hastala Vista 
