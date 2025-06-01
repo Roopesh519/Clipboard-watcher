@@ -18,7 +18,27 @@ A simple cross-platform Electron desktop application that monitors clipboard cha
 
 ---
 
+Here’s the corrected and polished version of your `🚀 Getting Started` section:
+
+---
+
 ## 🚀 Getting Started
+
+If you prefer not to go through the setup and build steps yourself—no worries, I’ve got you covered!
+
+Simply navigate to the `Install-build-directly` folder. You’ll find a prebuilt `.deb` installer ready to use.
+
+To install the application, run the following command:
+
+```bash
+sudo dpkg -i Install-build-directly/clipboard-watcher-app_1.0.0_amd64.deb
+```
+
+If you encounter any missing dependency errors, you can fix them by running:
+
+```bash
+sudo apt --fix-broken install
+```
 
 ### 🛠 Prerequisites
 
@@ -180,3 +200,5 @@ This project is licensed under the [MIT License](LICENSE).
 * [ ] Configurable blocked keywords (via settings GUI)
 
 ```
+
+## Hastala Vista 
