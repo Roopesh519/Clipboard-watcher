@@ -1,0 +1,49 @@
+{
+  "name": "clipboard-watcher-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "A simple Electron app that watches clipboard changes and acts on them.",
+  "author": {
+    "name": "Roopesh",
+    "email": "roopesh@example.com",
+    "url": "https://github.com/roopesh/clipboard-watcher-app"
+  },
+  "homepage": "https://github.com/roopesh/clipboard-watcher-app",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux"
+  },
+  "keywords": [
+    "clipboard",
+    "electron",
+    "watcher",
+    "ubuntu",
+    "tray"
+  ],
+  "dependencies": {
+    "clipboardy": "^4.0.0",
+    "node-notifier": "^10.0.1",
+    "open": "^10.1.2"
+  },
+  "devDependencies": {
+    "electron": "^36.3.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.roopesh.clipboardwatcher",
+    "productName": "ClipboardWatcher",
+    "files": [
+      "**/*"
+    ],
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Utility",
+      "maintainer": "Roopesh <roopesh@example.com>",
+      "icon": "tray.png"
+    }
+  }
+}

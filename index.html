@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Clipboard History</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1em;
+    }
+    input {
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.5em;
+    }
+    button {
+      margin-bottom: 1em;
+      padding: 0.5em 1em;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.5em;
+      background: #f2f2f2;
+      margin-bottom: 0.5em;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📋 Clipboard History</h1>
+  <input type="text" id="search" placeholder="Search clipboard..." />
+  <button onclick="clearHistory()">🧹 Clear History</button>
+  <ul id="history"></ul>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

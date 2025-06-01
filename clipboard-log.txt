@@ -1,0 +1,224 @@
+2025-06-01T13:03:53.305Z - const { ipcRenderer } = require('electron');
+
+ipcRenderer.send('get-clipboard-history');
+
+ipcRenderer.on('clipboard-history', (event, history) => {
+  const list = document.getElementById('history');
+  list.innerHTML = '';
+  history.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+});
+
+2025-06-01T13:04:31.348Z -   "scripts": {
+    "start": "electron .",
+2025-06-01T13:06:48.845Z -     "clipboard",
+    "electron",
+2025-06-01T13:06:58.367Z -     "clipboard",
+    "electron",
+2025-06-01T13:07:10.371Z - The file is not displayed in the text editor because it is either binary or uses an unsupported text encoding.
+2025-06-01T13:07:41.412Z - Would you like help packaging these updates into a .deb again or enhancing the GUI further (like clear history or search)?
+2025-06-01T13:08:01.414Z - <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Clipboard History</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1em;
+    }
+    input {
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.5em;
+    }
+    button {
+      margin-bottom: 1em;
+      padding: 0.5em 1em;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.5em;
+      background: #f2f2f2;
+      margin-bottom: 0.5em;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📋 Clipboard History</h1>
+  <input type="text" id="search" placeholder="Search clipboard..." />
+  <button onclick="clearHistory()">🧹 Clear History</button>
+  <ul id="history"></ul>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
+
+2025-06-01T13:08:19.437Z - const { ipcRenderer } = require('electron');
+
+let fullHistory = [];
+
+ipcRenderer.send('get-clipboard-history');
+
+ipcRenderer.on('clipboard-history', (event, history) => {
+  fullHistory = history;
+  renderHistory(fullHistory);
+});
+
+function renderHistory(history) {
+  const list = document.getElementById('history');
+  list.innerHTML = '';
+  history.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+}
+
+document.getElementById('search').addEventListener('input', (e) => {
+  const keyword = e.target.value.toLowerCase();
+  const filtered = fullHistory.filter(item => item.toLowerCase().includes(keyword));
+  renderHistory(filtered);
+});
+
+function clearHistory() {
+  ipcRenderer.send('clear-clipboard-history');
+  fullHistory = [];
+  renderHistory(fullHistory);
+}
+
+2025-06-01T13:08:30.469Z - ipcMain.on('clear-clipboard-history', () => {
+  clipboardHistory = [];
+  fs.appendFileSync(logFile, `\n--- History cleared at ${new Date().toISOString()} ---\n`);
+});
+
+2025-06-01T13:09:06.512Z - ipcMain.on('get-clipboard-history')
+2025-06-01T13:09:15.512Z - ipcMain.on('clear-clipboard-history', () => {
+  clipboardHistory = [];
+  fs.appendFileSync(logFile, `\n--- History cleared at ${new Date().toISOString()} ---\n`);
+});
+
+2025-06-01T13:09:27.541Z - "author": {
+  "name": "Roopesh",
+  "email": "your@email.com"
+},
+"homepage": "https://github.com/yourusername/clipboard-watcher-app",
+"build": {
+  "appId": "com.roopesh.clipboardwatcher",
+  "productName": "ClipboardWatcher",
+  "files": [
+    "**/*"
+  ],
+  "linux": {
+    "target": "deb",
+    "category": "Utility",
+    "maintainer": "Roopesh <your@email.com>",
+    "icon": "tray.png"
+  }
+}
+
+2025-06-01T13:09:38.560Z - {
+  "name": "clipboard-watcher-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "A simple Electron app that watches clipboard changes and acts on them.",
+  "author": {
+    "name": "Roopesh",
+    "email": "roopesh@example.com"
+  },
+  "homepage": "https://github.com/roopesh/clipboard-watcher-app",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux"
+  },
+  "keywords": [
+    "clipboard",
+    "electron",
+    "watcher",
+    "ubuntu",
+    "tray"
+  ],
+  "dependencies": {
+    "clipboardy": "^4.0.0",
+    "node-notifier": "^10.0.1",
+    "open": "^10.1.2"
+  },
+  "devDependencies": {
+    "electron": "^36.3.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.roopesh.clipboardwatcher",
+    "productName": "ClipboardWatcher",
+    "files": [
+      "**/*"
+    ],
+    "linux": {
+      "target": "deb",
+      "category": "Utility",
+      "maintainer": "Roopesh <roopesh@example.com>",
+      "icon": "tray.png"
+    }
+  }
+}
+
+2025-06-01T13:09:57.585Z - {
+  "name": "clipboard-watcher-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "A simple Electron app that watches clipboard changes and acts on them.",
+  "author": {
+    "name": "Roopesh",
+    "email": "roopesh@example.com",
+    "url": "https://github.com/roopesh/clipboard-watcher-app"
+  },
+  "homepage": "https://github.com/roopesh/clipboard-watcher-app",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux"
+  },
+  "keywords": [
+    "clipboard",
+    "electron",
+    "watcher",
+    "ubuntu",
+    "tray"
+  ],
+  "dependencies": {
+    "clipboardy": "^4.0.0",
+    "node-notifier": "^10.0.1",
+    "open": "^10.1.2"
+  },
+  "devDependencies": {
+    "electron": "^36.3.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.roopesh.clipboardwatcher",
+    "productName": "ClipboardWatcher",
+    "files": [
+      "**/*"
+    ],
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Utility",
+      "maintainer": "Roopesh <roopesh@example.com>",
+      "icon": "tray.png"
+    }
+  }
+}
+
+2025-06-01T13:10:05.592Z - npm run dist
+
